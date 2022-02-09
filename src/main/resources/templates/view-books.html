@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://thymeleaf.org" lang="en">
+<head>
+  <title>Getting Started: Serving Web Content</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+
+<h1>Book overview</h1>
+
+<br>
+
+<h2 th:if="${addBookSuccess}">
+  <p th:text="${'Successfully added Book with ISBN: ' + savedBook?.isbn}"/>
+</h2>
+
+<br>
+<a href="addBook">Add book</a>
+<br><br>
+
+<table>
+  <tr>
+    <th>ISBN</th>
+    <th>Title</th>
+    <th>Author</th>
+  </tr>
+
+  <tr th:each="book : ${books}">
+    <td th:text="${book.getIsbn()}"></td>
+    <td th:text="${book.getTitle()}"></td>
+    <td th:text="${book.getAuthor()}"></td>
+  </tr>
+</table>
+
+</body>
+</html>
